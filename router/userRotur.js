@@ -3,7 +3,7 @@ import { Router } from "express";
 import { CreateUser } from "../controller/userController.js";
 const router= Router();
 
-router.post("/",CreateUser)
+router.post("/user",CreateUser)
 
 
 

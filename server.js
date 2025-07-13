@@ -1,10 +1,13 @@
 import 'dotenv/config';
-
 import express from 'express';
-import router from './router/index.js'; // Adjust the import path as necessary
+import userRouter from './router/userRotur.js'; // Adjust the import path as necessary
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
 
 
 app.get('/', (req, res) => {
@@ -14,7 +17,7 @@ app.get('/', (req, res) => {
 
 
 
-app.use(router)
+app.use('/api', userRouter);
 
 
 
