@@ -4,7 +4,3 @@ export const prisma = new PrismaClient({
     log: ["query", "info", "warn", "error"]
 });
 
-model User{
-
-    
-}
