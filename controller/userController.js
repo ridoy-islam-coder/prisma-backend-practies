@@ -22,3 +22,23 @@ export const CreateUser=async(req, res) => {
     });
     return res.status(201).json({ message: "User created successfully", user: createUser });
   }
+
+
+
+  export const updateuaser=async(req,res)=>{
+    const { id } = req.params;
+    const { name, email, password } = req.body;
+
+    await prisma.user.update({
+        where: { id: id},
+        data: {
+            name: name, 
+            email: email,
+            password: password
+        }
+    })
+   return res.status(200).json({ message: "User updated successfully" });
+ 
+  }
+
+
