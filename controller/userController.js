@@ -51,3 +51,13 @@ export const CreateUser=async(req, res) => {
   }
 
 
+  export const getAllUsers = async (req, res) => {
+         const { email } = req.params;
+    if (!email) {
+        return res.status(400).json({ message: "Email is required" });
+    }    
+    const facht=await prisma.user.findUnique({
+        where: { email:email }
+    });
+    return res.status(200).json({ message: "Users fetched successfully", users: facht });
+  }
