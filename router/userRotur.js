@@ -1,7 +1,7 @@
 import { Router } from "express";
 
 import { CreateUser, deleteuser, getAllUsers, updateuaser } from "../controller/userController.js";
-import { createpost, getAllposts } from "../controller/postController.js";
+import { createpost, getAllposts, updatePost } from "../controller/postController.js";
 const router= Router();
 
 router.post("/user",CreateUser)
@@ -12,7 +12,7 @@ router.get("/getAllUsers/:email",getAllUsers)
 //postapiurl
 
 router.post("/createpost",createpost)
-
+router.post("/updatePost/:id", updatePost);
 
 router.get("/getAllposts/:user_id", getAllposts);
 
